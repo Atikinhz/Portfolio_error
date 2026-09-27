@@ -1,0 +1,150 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@200;300;400;500;600;700&family=Anybody:wght@700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #F5F5F5;
+  --text: #161616;
+
+  --text-secondary: #666666;
+  --text-muted: #929292;
+
+  --surface: #FFFFFF;
+  --surface-dark: #161616;
+
+  --border: #DADADA;
+
+  /* Backward-compatible project tokens mapped strictly to neutral design system */
+  --carbon: #161616;
+  --containment-white: #FFFFFF;
+  --hardware-grey: #666666;
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-surface: var(--surface);
+  --color-surface-dark: var(--surface-dark);
+  --color-border: var(--border);
+
+  --color-carbon: var(--text);
+  --color-hardware-grey: var(--text-secondary);
+  --color-containment-white: var(--surface);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-manrope), 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    overflow: hidden;
+  }
+
+  ::selection {
+    background-color: var(--text);
+    color: var(--surface);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+  }
+}
+
+@media (pointer: fine) {
+  html.custom-cursor-active,
+  html.custom-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+.font-anybody {
+  font-family: var(--font-anybody), 'Anybody', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-onest {
+  font-family: 'Onest', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-manrope {
+  font-family: var(--font-manrope), 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-serif-instrument {
+  font-family: var(--font-serif-italic), 'Instrument Serif', Georgia, serif;
+}
+
+.font-mono-tech {
+  font-family: var(--font-mono-tech), 'JetBrains Mono', monospace;
+}
+
+/* Luxury Specular Gloss Sweep for "just marketing." */
+@keyframes specular-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.animate-specular-sweep {
+  animation: specular-sweep 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Technical terminal cursor blink for "just software." */
+@keyframes cursor-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor-pulse {
+  animation: cursor-pulse 0.9s step-end infinite;
+}
+
+/* Hide native scrollbars for seamless cylindrical stage */
+::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  background: transparent;
+}
+
+html, body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Codrops On-Scroll Text Highlight (Effect 11 FLIP) */
+.hx-flip-word {
+  will-change: transform, filter, opacity;
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-flip-word {
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* VRAK Motion System: CONTAINED -> PRESSURE -> RELEASE */
+.hero-line {
+  display: block;
+}
+
+.hero-line-inner {
+  display: block;
+  will-change: transform, opacity, filter;
+}
+
+.contained-reveal-mask {
+  overflow: hidden;
+  position: relative;
+}
+
+.contained-reveal-inner {
+  will-change: transform, filter, clip-path;
+}
+
